@@ -10,16 +10,16 @@
         private $latitude;
         private $longitude;
         private $ID;
+        private static $photoID;
 
         function __construct($fi, $ti, $de, $la, $lo) {
-            static $photoID = 0;
-            ++$photoID;
             $this->fileName = $fi;
             $this->title = $ti;
             $this->description = $de;
             $this->latitude = $la;
             $this->longitude = $lo;
-            $this->ID = $photoID;
+            self::$photoID++;
+            $this->ID = self::$photoID;
         }
 
         public function __toString() {
